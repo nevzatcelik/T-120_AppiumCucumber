@@ -1,20 +1,28 @@
 package stepdefinitions;
 
 import io.cucumber.java.en.Given;
+import pages.AileButcemPage;
+import utils.ConfigReader;
 import utils.Driver;
+import utils.ReusableMethods;
 
 public class AileButcemStepDefinitions {
+
+    AileButcemPage page=new AileButcemPage();
     @Given("Kullanici driver kurulumlarini yaparak cihaz baglantisini kurar")
     public void kullanici_driver_kurulumlarini_yaparak_cihaz_baglantisini_kurar() {
         Driver.getAndroidDriver();
     }
-    @Given("ilk ekran ayarlarini yapin ve ardindan login sayfasina ulasin")
-    public void ilk_ekran_ayarlarini_yapin_ve_ardindan_login_sayfasina_ulasin() {
-
+    @Given("ilk ekran ayarlarini yapin ve {string} ardindan login sayfasina ulasin")
+    public void ilk_ekran_ayarlarini_yapin_ve_ardindan_login_sayfasina_ulasin(String girisButonu) throws InterruptedException {
+    // 968,1081,139,1081
+        page.loginMethodu();
+        ReusableMethods.scrollWithUiScrollable(girisButonu);
     }
-    @Given("mail ve password bilgilerini girerek kullanici bilgileriyle giris yapin")
-    public void mail_ve_password_bilgilerini_girerek_kullanici_bilgileriyle_giris_yapin() {
-
+    @Given("{string} ve {string} bilgilerini girerek kullanici bilgileriyle giris yapin")
+    public void mail_ve_password_bilgilerini_girerek_kullanici_bilgileriyle_giris_yapin(String mail,String password) {
+       page.eMailBox.sendKeys(ConfigReader.getProperty(mail));
+       page.passwordBox.sendKeys(ConfigReader.getProperty(password));
     }
     @Given("uygulamaya kullanici bilgileriyle giris yapildigini dogrulayin")
     public void uygulamaya_kullanici_bilgileriyle_giris_yapildigini_dogrulayin() {
