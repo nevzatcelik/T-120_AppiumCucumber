@@ -45,6 +45,9 @@ public class AileButcemStepDefinitions {
     @Given("kullanici uygulamayi kapatir")
     public void kullanici_uygulamayi_kapatir() {
         Driver.quitAppiumDriver();
+
     }
+
+
 
 }

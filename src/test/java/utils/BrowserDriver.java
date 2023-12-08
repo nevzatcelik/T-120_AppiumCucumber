@@ -24,13 +24,13 @@ public class BrowserDriver {
         if (browserDriver == null) {
 
             DesiredCapabilities caps =new DesiredCapabilities();
-            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "PIXEL2");
-            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
+            caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Galaksy Tab S2");
+            caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.0");
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
             caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
             caps.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome"); // kullanacak oldugumuz mobil browser tanimi
-            caps.setCapability("chromedriverExecutable","C:\\Users\\ahmet\\IdeaProjects\\T_120_AppiumCucumber\\Driver\\chromedriver.exe");
+            caps.setCapability("chromedriverExecutable","C:\\Users\\ahmet\\IdeaProjects\\T_120_AppiumCucumber\\Driver\\chromedriver2.exe");
             if (ConfigReader.getProperty("platformName").equals("Android")) {
 
                 browserDriver = new AndroidDriver<>(appiumServerURL,caps);
